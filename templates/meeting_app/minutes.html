@@ -1,0 +1,28 @@
+{% extends 'meeting_app/base.html' %}
+{% block body_block %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <h2 style="text-align: center;">Meeting Minutes</h2>
+    {% for minutes in minute %}
+    <div class="container" id="contact-div">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-body h-100" id="profile-wrapper">
+                    <br><h3><b>Meeting Title: </b>{{minutes.titles}}</h3>
+                    <br><h3>Date: </h3>
+                        {{minutes.date}}
+                    <br><h3>Time: </h3>
+                        {{minutes.start_time}} to {{minutes.end_time}}
+                    <br><h3>Meeting Attendees: </h3>
+                        {{minutes.attendees_name}}
+                    <br><h3>Talking Points: </h3>
+                        {{minutes.talking_points}}
+                    <br><h3>Action Items: </h3>
+                        {{minutes.action_items}}
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    {% endfor %}
+{% endblock %}

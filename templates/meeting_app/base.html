@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Meeting Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{% url 'index' %}">MEETING MANAGEMENT</a>
+      <div class="navbar-nav ml-auto">
+        <a class="navbar-item nav-link" href="{% url 'index' %}">HOME</a>
+        <a class="nav-item nav-link" href="{% url 'meeting_app:create_meeting' %}">Create Meeting</a>
+        <a class="nav-item nav-link" href="{% url 'meeting_app:minutes' %}">Meeting Minutes</a>
+
+
+        
+      </div>
+    </nav>
+
+    <div class="container">
+    {% block body_block %}
+    {% endblock %}
+    </div>
+
+
+  </body>
+</html>

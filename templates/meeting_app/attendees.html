@@ -1,0 +1,44 @@
+{% extends 'meeting_app/base.html' %}
+{% load static %}
+{% block body_block %}
+<link rel="stylesheet" href="{% static 'meeting_app/CSS/style.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <h3 style="text-align: center;">Add Attendees</h3>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card card-body h-100">
+                        <form method="POST" action="add_minutes/">
+                            {% csrf_token %}
+                            {{form.title}}
+                            <br>
+                            {{form.name}}
+                            <br>
+                            {{form.email}}
+                            <br>
+                            <button class="btn btn-sm btn-primary" type="submit" value="Add">Add Attendee</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    {% for user in users %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card card-body h-100">
+                    <div>
+                        <span>{{user.name}}&nbsp;&nbsp;&nbsp;
+                        {{user.email}}&nbsp;&nbsp;&nbsp;</span>
+                        <a href="#">Mark Attendance</a>
+                    </div>
+                    <br>
+                    <a class="btn btn-sm btn-primary" href="{% url 'attendees' %}">Send Mail</a>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+{% endfor %}
+{% endblock %}

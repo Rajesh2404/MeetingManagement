@@ -1,0 +1,34 @@
+{% extends 'meeting_app/base.html' %}
+{% load static %}
+{% block body_block %}
+<link rel="stylesheet" href="{% static 'meeting_app/CSS/style.css' %}">
+<h3 style="text-align: center;">Add Minutes</h3>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card card-body h-100">
+                <form method="POST" action="add_minutes/">
+                    {% csrf_token %}
+                    {{forms.titles}}
+                    <br>
+                    {{forms.date}}
+                    <br>
+                    {{forms.start_time}}
+                    <br>
+                    {{forms.end_time}}
+                    <br>
+                    {{forms.attendees_name}}
+                    <br>
+                    {{forms.talking_points}}
+                    <br>
+                    {{forms.action_items}}
+                    <br>
+                    <button class="btn btn-sm btn-primary" type="submit" value="Add">Add Minutes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+
+{% endblock %}
